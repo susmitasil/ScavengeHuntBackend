@@ -4,8 +4,8 @@ exports.getBranchDetails = async (req, res) => {
     try {
         const result = await BeetleNut.find()
       res.status(200).json({
-        message: result,
-        // message: 'You can now get the requested branches for your request ',
+        data: result,
+        message: 'You can now get the requested branches for your request ',
       });
     } catch (err) {
       res.status(404).json({
@@ -14,10 +14,11 @@ exports.getBranchDetails = async (req, res) => {
       });
     }
   };
-  exports.newNotes = async (req, res) => {
+  exports.getDetailsUser = async (req, res) => {
     try {
+        const result = await BeetleNut.find({ pin_covered: { $in: [ req.pin ]} })
       res.status(201).json({
-        data: 'New notes added for the POST request',
+        data: 'data returned for the POST request',
       });
     } catch (err) {
       res.status(404).json({

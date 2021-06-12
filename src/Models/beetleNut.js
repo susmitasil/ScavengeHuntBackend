@@ -15,7 +15,7 @@ const beetleNutSchema = new mongoose.Schema(
         type: String,
       },
       contact: {
-        type: String,
+        type: Array,
       },
       branch_incharge: {
         type: String,
