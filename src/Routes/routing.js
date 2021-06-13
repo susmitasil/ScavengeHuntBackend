@@ -10,5 +10,6 @@ routing.post('/auth', authController.auth);
 routing.get('/getbranchDetails', scavengeController.getBranchDetails);
 routing.get('/insertDetails', insertController.insertData);
 routing.post('/getDetailsCust', scavengeController.getDetailsCust); 
+routing.post('/getDetailsUser', scavengeController.getDetailsUser); 
 routing.all('*', scavengeController.invalid);
 module.exports = routing;

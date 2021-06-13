@@ -31,6 +31,24 @@ exports.getBranchDetails = async (req, res) => {
       });
     }
   };
+  exports.getDetailsUser = async (req, res) => {
+
+    try {
+      console.log(req.body)
+        const result = await BeetleNut.find({username: req.body.username })
+        
+        console.log(result)
+      res.status(200).json({
+        data: result,
+        message: 'your details are fetched as per request',
+      });
+    } catch (err) {
+      res.status(404).json({
+        status: 'fail',
+        message: err,
+      });
+    }
+  };
   exports.invalid = async (req, res) => {
     res.status(404).json({
       status: 'fail',
