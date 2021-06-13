@@ -16,9 +16,13 @@ exports.getBranchDetails = async (req, res) => {
   };
   exports.getDetailsUser = async (req, res) => {
     try {
-        const result = await BeetleNut.find({ pin_covered: { $in: [ req.pin ]} })
+        const result = await BeetleNut.find({pin_covered: {$elemMatch: { $all:  req.body.pin }} })
+        console.log(req.body)
+        console.log(parseInt(req.body.pin))
+        console.log(result)
       res.status(201).json({
-        data: 'data returned for the POST request',
+        data: result,
+        message: 'data returned for the POST request',
       });
     } catch (err) {
       res.status(404).json({

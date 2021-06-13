@@ -3,8 +3,12 @@ app = express()
 const route = require('./Routes/routing')
 const mongoose = require("mongoose")
 const url = 'mongodb://localhost/scavengeHuntDB'
+const bodyParser = require('body-parser')
+// const { urlencoded } = require('body-parser')
 
 require('dotenv').config()
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.json())
 
 mongoose.connect(url, {
     useNewUrlParser:true,

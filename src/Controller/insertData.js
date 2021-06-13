@@ -19,9 +19,9 @@ exports.insertData = async (req, res) => {
                 dataObj['branch_name'] = res['Branch Name']
                 dataObj['address'] = res['Address']
                 dataObj['city'] = res['City']
-                dataObj['contact'] = res['Contact Number'].split(',')
+                dataObj['contact'] = res['Contact Number'].split(',').map(item=>item.trim())
                 dataObj['branch_incharge'] = res['Branch Incharge']
-                dataObj['pin_covered'] = res['Pincode covered']
+                dataObj['pin_covered'] = res['Pincode covered'].split(',').map(item=>item.trim())
                 dataObj['username'] = 'user' + (indx+1)
                 userObj['username'] = 'user' + (indx+1)
                 userObj['password'] = 'pass' + (indx+1)
