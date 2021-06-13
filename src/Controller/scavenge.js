@@ -14,15 +14,15 @@ exports.getBranchDetails = async (req, res) => {
       });
     }
   };
-  exports.getDetailsUser = async (req, res) => {
+  exports.getDetailsCust = async (req, res) => {
     try {
         const result = await BeetleNut.find({pin_covered: {$elemMatch: { $all:  req.body.pin }} })
         console.log(req.body)
         console.log(parseInt(req.body.pin))
         console.log(result)
-      res.status(201).json({
+      res.status(200).json({
         data: result,
-        message: 'data returned for the POST request',
+        message: 'Bad Bad luck, No Donut for you!!',
       });
     } catch (err) {
       res.status(404).json({

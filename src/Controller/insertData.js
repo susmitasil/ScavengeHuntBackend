@@ -25,6 +25,7 @@ exports.insertData = async (req, res) => {
                 dataObj['username'] = 'user' + (indx+1)
                 userObj['username'] = 'user' + (indx+1)
                 userObj['password'] = 'pass' + (indx+1)
+                userObj['role'] = 'user'
                 data.push(dataObj)
                 users.push(userObj)
             })
