@@ -1,14 +1,18 @@
 const express = require('express')
 app = express()
+var cors = require('cors')
+
 const route = require('./Routes/routing')
 const mongoose = require("mongoose")
 const url = 'mongodb://localhost/scavengeHuntDB'
 const bodyParser = require('body-parser')
-// const { urlencoded } = require('body-parser')
+const webpush = require('web-push')
+const path = require('path')
 
 require('dotenv').config()
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
+app.use(cors())
 
 mongoose.connect(url, {
     useNewUrlParser:true,
@@ -29,7 +33,7 @@ app.get('/sush', (req, res)=>{
 app.use('/', route)
 
 
-const PORT = process.env.PORT || 4001
+const PORT = process.env.PORT || 4000
 
 app.listen(PORT, ()=>{
     console.log('Listening to port '+ PORT)
